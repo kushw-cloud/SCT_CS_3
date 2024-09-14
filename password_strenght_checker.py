@@ -1,10 +1,35 @@
 import re
 
 class PasswordStrengthChecker:
-    # ... (rest of the class remains the same)
+    def __init__(self):
+        self.criteria = [
+            {"name": "Length", "condition": lambda p: len(p) >= 12, "feedback": "Consider using a longer password for better security."},
+            {"name": "Uppercase and Lowercase", "condition": lambda p: any(c.isupper() for c in p) and any(c.islower() for c in p), "feedback": "Mixing uppercase and lowercase letters enhances security."},
+            {"name": "Numbers", "condition": lambda p: any(c.isdigit() for c in p), "feedback": "Including numbers adds to the complexity of the password."},
+            {"name": "Special Characters", "condition": lambda p: bool(re.match(r'[!@#$%^&*(),.?":{}|<>]', p)), "feedback": "Special characters provide an extra layer of security."},
+        ]
+
+    def check_password_strength(self, password):
+        score = 0
+        feedback = []
+
+        for criterion in self.criteria:
+            if criterion["condition"](password):
+                score += 1
+            else:
+                feedback.append(criterion["feedback"])
+
+        if score >= 3:
+            return "Strong password! Keep it safe."
+        else:
+            return "Weak password. " + " ".join(feedback)
 
 def custom_password_check(password, min_length=8, require_special_chars=False):
-    # ... (rest of the function remains the same)
+    if len(password) < min_length:
+        return 'Password is too short'
+    if require_special_chars and not any(char in '!@#$%^&*()_+' for char in password):
+        return 'Password must include special characters'
+    return 'Password is strong'
 
 def password_score(password):
     score = 0
