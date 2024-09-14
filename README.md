@@ -22,7 +22,7 @@ This Python script is designed to evaluate the strength of passwords through var
 
 **2. Standard Check:** Feedback based on predefined password strength criteria.
 
-**3 Receive Feedback:** The script will output:
+**3. Receive Feedback:** The script will output:
    
    - Standard Check: Feedback based on predefined password strength criteria.
    - Custom Check: Feedback based on custom rules like minimum length and special character requirements.
