@@ -27,3 +27,6 @@ This Python script is designed to evaluate the strength of passwords through var
    - Standard Check: Feedback based on predefined password strength criteria.
    - Custom Check: Feedback based on custom rules like minimum length and special character requirements.
    - Password Evaluation: A categorization of the password (Strong, Moderate, or Weak) along with a numerical score out of 100.
+
+**4.** Type exit to exit from the tool 
+
